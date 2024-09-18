@@ -1,0 +1,54 @@
+[workspace]
+members = [
+  "e2e",
+  "e2e-proc",
+]
+default-members = [
+  "e2e-proc",
+]
+
+# Explicitly set the resolver to version 2, which is the default for packages
+# with edition >= 2021.
+# https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+keywords = ["arbitrum", "ethereum", "stylus"]
+
+[workspace.dependencies]
+alloy = { version = "0.1.4", features = [
+  "contract",
+  "network",
+  "providers",
+  "provider-http",
+  "rpc-client",
+  "rpc-types-eth",
+  "signer-local",
+  "getrandom",
+] }
+eyre = "0.6.8"
+tokio = { version = "1.12.0", features = ["full"] }
+regex = "1.10.4"
+once_cell = "1.19.0"
+koba = "0.2.0"
+
+# procedural macros
+proc-macro2 = "1.0.79"
+quote = "1.0.35"
+syn = { version = "2.0.58", features = ["full"] }
+
+[profile.release]
+codegen-units = 1
+panic = "abort"
+opt-level = "z"
+strip = true
+lto = true
+debug = false
+rpath = false
+debug-assertions = false
+incremental = false
+
+[profile.dev]
+panic = "abort"
