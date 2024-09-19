@@ -1305,11 +1305,13 @@ name = "e2e"
 version = "0.1.0"
 dependencies = [
  "alloy",
+ "const-hex",
  "e2e-proc",
  "eyre",
  "koba",
  "once_cell",
  "regex",
+ "tiny-keccak",
  "tokio",
  "toml",
 ]

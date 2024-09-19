@@ -15,3 +15,7 @@ regex.workspace = true
 once_cell.workspace = true
 koba.workspace = true
 toml = "0.8.13"
+
+# Extra dependencies for adding shims
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+const-hex = { version = "1.11.1", default-features = false }

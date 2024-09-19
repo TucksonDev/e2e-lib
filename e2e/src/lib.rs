@@ -15,6 +15,16 @@ pub use event::EventExt;
 pub use receipt::ReceiptExt;
 pub use system::{fund_account, provider, Provider, Wallet};
 
+// Exposing added modules
+mod shims;
+mod storage;
+pub use shims::*;
+
+// Exposing modules used in e2e tests
+pub use alloy;
+pub use eyre;
+pub use tokio;
+
 /// This macro provides a shorthand for broadcasting the transaction to the
 /// network.
 ///
